@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+</head>
+<body>
+    <nav>
+        <h1>My Creation</h1>
+        <ul>
+            <li>Home</li>
+            <li>Shop</li>
+            <li>About us</li>
+            <li>Services</li>
+            <li>Blog</li>
+            <li>Contact Us</li>
+            {% if user_is_authenticated %}
+            <li>Hello {{user.username}}</li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div>
+        <h1>This is the introduction to the Test Website</h1>
+    </div>
+</body>
+</html>
+
+<style>
+    body{
+        background-color: sandybrown;
+        text-align: center;
+    }
+
+    li{
+        display: inline;
+        margin: 5px;
+    }
+</style>

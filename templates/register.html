@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr><td>Enter your Username : </td></tr>
+            <tr><td><input type="text" placeholder="Enter your Username" name="username" required></td></tr>
+            <tr><td>Enter your Email : </td></tr>
+            <tr><td><input type="email" placeholder="Enter your Email" name="email" required></td></tr>
+            <tr><td>Enter your Password : </td></tr>
+            <tr><td><input type="password" placeholder="Enter your Password" name="password1" required></td></tr>
+            <tr><td>Reenter your Password : </td></tr>
+            <tr><td><input type="password" placeholder="Confirm Password" name="password2" required></td></tr>
+            <tr><td><button>Register</button></td></tr>
+        </table>
+    </form>
+    <p>Already an User ? <a href="{% url 'login' %}">Login</a></p>
+
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</body>
+</html>
+
+<style>
+    body{
+        margin: auto;
+        width: 50%;
+        background-color: bisque;
+    }
+</style>
